@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/01_Static_and_02_Parameters/01_Static_and_02_Parameters.iml" filepath="$PROJECT_DIR$/01_Static_and_02_Parameters/01_Static_and_02_Parameters.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03_Constructors_and_04_OverloadMethods_and_05_Main/03_Constructors_and_04_OverloadMethods_and_05_Main.iml" filepath="$PROJECT_DIR$/03_Constructors_and_04_OverloadMethods_and_05_Main/03_Constructors_and_04_OverloadMethods_and_05_Main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/09_Modifiers_and_10_This_and_11_Super_12_Overriding/09_Modifiers_and_10_This_and_11_Super_12_Overriding.iml" filepath="$PROJECT_DIR$/09_Modifiers_and_10_This_and_11_Super_12_Overriding/09_Modifiers_and_10_This_and_11_Super_12_Overriding.iml" />
+      <module fileurl="file://$PROJECT_DIR$/14_Covariant_and_15_Casting_and_16_Final/14_Covariant_and_15_Casting_and_16_Final.iml" filepath="$PROJECT_DIR$/14_Covariant_and_15_Casting_and_16_Final/14_Covariant_and_15_Casting_and_16_Final.iml" />
+      <module fileurl="file://$PROJECT_DIR$/17_Abstract_and_18_Interfaces_and_19_Inner/17_Abstract_and_18_Interfaces_and_19_Inner.iml" filepath="$PROJECT_DIR$/17_Abstract_and_18_Interfaces_and_19_Inner/17_Abstract_and_18_Interfaces_and_19_Inner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/21_Exceptions_and_22/21_Exceptions_and_22.iml" filepath="$PROJECT_DIR$/21_Exceptions_and_22/21_Exceptions_and_22.iml" />
+      <module fileurl="file://$PROJECT_DIR$/22_Strings_and_23_Wrappers_and_24_Enums/22_Strings_and_23_Wrappers_and_24_Enums.iml" filepath="$PROJECT_DIR$/22_Strings_and_23_Wrappers_and_24_Enums/22_Strings_and_23_Wrappers_and_24_Enums.iml" />
+      <module fileurl="file://$PROJECT_DIR$/25_ArraysClass_and_26_VarArgs_and_27_GarbageCollector/25_ArraysClass_and_26_VarArgs_and_27_GarbageCollector.iml" filepath="$PROJECT_DIR$/25_ArraysClass_and_26_VarArgs_and_27_GarbageCollector/25_ArraysClass_and_26_VarArgs_and_27_GarbageCollector.iml" />
+      <module fileurl="file://$PROJECT_DIR$/29_APIJavaSE8ForWorkWithDatesAndTimes/29_APIJavaSE8ForWorkWithDatesAndTimes.iml" filepath="$PROJECT_DIR$/29_APIJavaSE8ForWorkWithDatesAndTimes/29_APIJavaSE8ForWorkWithDatesAndTimes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/JavaAssociated.iml" filepath="$PROJECT_DIR$/.idea/JavaAssociated.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06_Initialization_and_07_PackagesImport_and_08_InheritanceDates/nationalDayInTheNext5Years/nationalDayInTheNext5Years.iml" filepath="$PROJECT_DIR$/06_Initialization_and_07_PackagesImport_and_08_InheritanceDates/nationalDayInTheNext5Years/nationalDayInTheNext5Years.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06_Initialization_and_07_PackagesImport_and_08_InheritanceDates/numberOfDaysBetweenEvents/numberOfDaysBetweenEvents.iml" filepath="$PROJECT_DIR$/06_Initialization_and_07_PackagesImport_and_08_InheritanceDates/numberOfDaysBetweenEvents/numberOfDaysBetweenEvents.iml" />
+      <module fileurl="file://$PROJECT_DIR$/20_Lambdas/taskOne/taskOne.iml" filepath="$PROJECT_DIR$/20_Lambdas/taskOne/taskOne.iml" />
+      <module fileurl="file://$PROJECT_DIR$/13_Polymorphism/taskThird/taskThird.iml" filepath="$PROJECT_DIR$/13_Polymorphism/taskThird/taskThird.iml" />
+      <module fileurl="file://$PROJECT_DIR$/13_Polymorphism/taskTwo/taskTwo.iml" filepath="$PROJECT_DIR$/13_Polymorphism/taskTwo/taskTwo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/20_Lambdas/taskTwo/taskTwo1.iml" filepath="$PROJECT_DIR$/20_Lambdas/taskTwo/taskTwo1.iml" />
+    </modules>
+  </component>
+</project>

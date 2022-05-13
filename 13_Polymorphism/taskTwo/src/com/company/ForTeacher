@@ -1,0 +1,211 @@
+
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+public class Dispatcher {
+
+    public static void main(String[] args) {
+
+        List<Car> carArrayList1 = new ArrayList<>();
+        carArrayList1.add(new Car("BMW", "Serge", 4000, 2015));
+        carArrayList1.add(new Car("BMW", "Dima", 10000, 2021));
+        carArrayList1.add(new Car("AUDI", "Serge", 5000, 2016));
+
+        // First solution
+        Car finderByOwner = new CarByOwner("----", "Dima", 0, 0);
+        System.out.println(carArrayList1.contains(finderByOwner));
+
+        // Second solution
+        System.out.println(Car.searchByOwner(carArrayList1, finderByOwner));
+
+        System.out.println("--------------------");
+
+        List<Car> carArrayList2 = new ArrayList<>();
+        carArrayList2.add(new Car("BMW", "Serge", 4000, 2015));
+        carArrayList2.add(new Car("BMW", "Dima", 10000, 2021));
+        carArrayList2.add(new Car("AUDI", "Bob", 5000, 2016));
+
+        // First solution
+        Car finderByModel = new CarByModel("AUDI", "", 0, 0);
+        System.out.println(carArrayList1.contains(finderByModel));
+
+        // Second solution
+        System.out.println(Car.searchByModel(carArrayList1, finderByModel));
+    }
+}
+
+class Car {
+    private String model;
+    private String owner;
+    private int price;
+    private int produceYear;
+
+    Car() {
+    }
+
+    Car(String model, String owner, int price, int produceYear) {
+        this.model = model;
+        this.owner = owner;
+        this.price = price;
+        this.produceYear = produceYear;
+    }
+
+
+    public String getModel() {
+        return model;
+    }
+    public String getOwner() {
+        return owner;
+    }
+    public int getPrice() {
+        return price;
+    }
+    public int getProduceYear() {
+        return produceYear;
+    }
+
+    protected void setModel(String model) {
+        this.model = model;
+    }
+    protected void setOwner(String owner) {
+        this.owner = owner;
+    }
+    protected void setPrice(int price) {
+        this.price = price;
+    }
+    protected void setProduceYear(int produceYear) {
+        this.produceYear = produceYear;
+    }
+
+    /**
+     * Нестандартные методы для поиска в классе Car
+     */
+    public static boolean searchByOwner(List<Car> carList, Car finder) {
+        boolean result = false;
+        for (Car carInList : carList) {
+            if (carInList.owner.equals(finder.owner)) {
+                result = true;
+                break;
+            }
+        }
+        return result;
+    }
+
+
+    public static boolean searchByModel(List<Car> carList, Car finder) {
+        boolean result = false;
+        for (Car carInList : carList) {
+            if (carInList.model.equals(finder.model)) {
+                result = true;
+                break;
+            }
+        }
+        return result;
+    }
+
+    public static boolean searchByPrice(List<Car> carList, Car finder) {
+        boolean result = false;
+        for (Car carInList : carList) {
+            if (carInList.price == finder.price) {
+                result = true;
+                break;
+            }
+        }
+        return result;
+    }
+
+    public static boolean searchByProduceYear(List<Car> carList, Car finder) {
+        boolean result = false;
+        for (Car carInList : carList) {
+            if (carInList.produceYear == finder.produceYear) {
+                result = true;
+                break;
+            }
+        }
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Car car = (Car) o;
+        return this.price == car.price && this.produceYear == car.produceYear
+                && Objects.equals(this.model, car.model) && Objects.equals(this.owner, car.owner);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = model == null ? 0 : model.hashCode();
+        result = result + (owner == null ? 0 : owner.hashCode());
+        result = 17 * result + price;
+        result = 17 * result + produceYear;
+        return result;
+    }
+}
+
+/**
+ * Стандартные методы поиска
+ */
+class CarByOwner extends Car {
+
+    CarByOwner() {
+    }
+
+    CarByOwner(String model, String owner, int price, int produceYear) {
+        super(model, owner, price, produceYear);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return getOwner().equals(((Car) obj).getOwner());
+    }
+}
+
+class CarByModel extends Car {
+
+    CarByModel() {
+    }
+
+    CarByModel(String model, String owner, int price, int produceYear) {
+        super(model, owner, price, produceYear);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return getModel().equals(((Car) obj).getModel());
+    }
+}
+
+class CarByPrice extends Car {
+
+    CarByPrice() {
+    }
+
+    CarByPrice(String model, String owner, int price, int produceYear) {
+        super(model, owner, price, produceYear);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return this.getPrice() == ((Car) obj).getPrice();
+    }
+}
+
+class CarByProduceYear extends Car {
+
+    CarByProduceYear() {
+    }
+
+    CarByProduceYear(String model, String owner, int price, int produceYear) {
+        super(model, owner, price, produceYear);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return this.getProduceYear() == ((Car) obj).getProduceYear();
+    }
+}

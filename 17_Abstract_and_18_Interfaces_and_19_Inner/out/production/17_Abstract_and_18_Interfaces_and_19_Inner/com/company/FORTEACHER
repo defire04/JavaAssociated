@@ -1,0 +1,181 @@
+package com.company;
+
+import java.util.List;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Collections;
+
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner in = new Scanner(System.in);
+
+        List<Person> people = new ArrayList<>();
+        people.add(new Person("Bob", "Kiev", 2007, true));
+        people.add(new Person("Dima", "Kiev", 2004, true));
+        people.add(new Person("Mary", "Kherson", 2000, false));
+        people.add(new Person("Nastya", "Kiev", 2005, false));
+        people.add(new Person("Serge", "Ivano-Frankivsk", 1999, true));
+        people.add(new Person("Zhenya", "Kiev", 2003, true));
+
+//      - при введенні “1” – по region, при однакових region: name => isMale => birthYear,
+//      - при введенні “2” – по birthYear, при однакових birthYear: isMale => name => region,
+//      - при введенні “3” – по isMale, при однакових isMale: name => region => birthYear,
+//      - при введенні будь-якого іншого String – по name, при name => region => birthYear => isMale
+
+
+        System.out.print("Enter sort type: ");
+        Controller.sorting(in.next(), people);
+        System.out.println(people);
+
+    }
+}
+
+class Person implements Comparable<Person> {
+
+    private String name;
+    private String region;
+    private int birthYear;
+    private Boolean isMale;
+
+    public String getName() {
+        return this.name;
+    }
+    public String getRegion() {
+        return this.region;
+    }
+    public int getBirthYear() {
+        return this.birthYear;
+    }
+    public Boolean getIsMale(){
+        return this.isMale;
+    }
+
+    protected void setName(String name) {
+        this.name = name;
+    }
+    protected void setRegion(String region) {
+        this.region = region;
+    }
+    protected void setBirthYear(int birthYear) {
+        this.birthYear = birthYear;
+    }
+    protected void setMale(boolean male) {
+        isMale = male;
+    }
+
+
+    Person(String name, String region, int birthYear, boolean isMale){
+        this.name = name;
+        this.region = region;
+        this.birthYear = birthYear;
+        this.isMale = isMale;
+    }
+
+    @Override
+    public String toString() {
+        return " \n Name = " + this.name + "," + "\n" +
+                " Region = " + this.region +  "," + "\n" +
+                " Birth Year = " + this.birthYear +  "," + "\n" +
+                " Is male = " + this.isMale + "\n" +
+                "---------------------------------------------- \n";
+    }
+
+    @Override
+    public int compareTo(Person person) {
+        int result = this.name.compareTo(person.name);
+                            if(result != 0){
+            return result;
+        }
+        else {
+            result = this.region.compareTo(person.region);
+            if(result != 0){
+                return result;
+            }
+            else {
+                result = this.birthYear - person.birthYear;
+                if(result != 0){
+                    return result;
+                }
+                else {
+                   return this.isMale.compareTo(person.isMale);
+                }
+            }
+        }
+    }
+}
+
+class Controller {``
+    public static void sorting(String typeOfSorting, List<Person> people) {
+        switch (typeOfSorting) {
+            case "1" -> people.sort(new Comparator() {
+                @Override
+                public int compare(Object o1, Object o2) {
+                    int result = ((Person) o1).getRegion().compareTo(((Person) o2).getRegion());
+                    if (result != 0) {
+                        return result;
+                    } else {
+                        result = ((Person) o1).getName().compareTo(((Person) o2).getName());
+                        if (result != 0) {
+                            return result;
+                        } else {
+                            result = ((Person) o1).getIsMale().compareTo(((Person) o2).getIsMale());
+                            if (result != 0) {
+                                return result;
+                            } else {
+                                return ((Person) o1).getBirthYear() - ((Person) o2).getBirthYear();
+                            }
+                        }
+                    }
+                }
+            });
+            case "2" -> people.sort(new Comparator() {
+                @Override
+                public int compare(Object o1, Object o2) {
+                    int result = ((Person) o1).getBirthYear() - ((Person) o2).getBirthYear();
+                    if (result != 0) {
+                        return result;
+                    } else {
+                        result = ((Person) o1).getIsMale().compareTo(((Person) o2).getIsMale());
+                        if (result != 0) {
+                            return result;
+                        } else {
+                            result = ((Person) o1).getName().compareTo(((Person) o2).getName());
+                            if (result != 0) {
+                                return result;
+                            } else {
+                                return ((Person) o1).getRegion().compareTo(((Person) o2).getRegion());
+                            }
+                        }
+                    }
+                }
+            });
+            case "3" -> people.sort(new Comparator() {
+                @Override
+                public int compare(Object o1, Object o2) {
+                    int result = ((Person) o1).getIsMale().compareTo(((Person) o2).getIsMale());
+                    if (result != 0) {
+                        return result;
+                    } else {
+                        result = ((Person) o1).getName().compareTo(((Person) o2).getName());
+                        if (result != 0) {
+                            return result;
+                        } else {
+                            result = ((Person) o1).getRegion().compareTo(((Person) o2).getRegion());
+                            if (result != 0) {
+                                return result;
+                            } else {
+                                return ((Person) o1).getBirthYear() - ((Person) o2).getBirthYear();
+                            }
+                        }
+                    }
+                }
+            });
+            default -> Collections.sort(people);
+        }
+    }
+}
